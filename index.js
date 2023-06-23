@@ -48,10 +48,17 @@ app.post("/upload/profile", upload.single("profile"), async (req, res) => {
     console.log(req.file.buffer);
     const fileBuffer = req.file.buffer;
     // cloudinary upload process
+
+    // ---------- unique public id creation ---------
+    const timestamp = new Date().getTime(); // Generate a timestamp
+  const uniqueId = Math.floor(Math.random()*100000); // Generate a unique identifier if needed
+  const publicId = `image_${timestamp}_${uniqueId}`; // Create a unique public ID
+
+    
     cloudinary.uploader
       .upload_stream(
         {
-          public_id: "profile-picture",
+          public_id: publicId,  // This public_id should be unique each time so that the old image don't get replace with new one in cloudinary media library.
         },
         (err, result) => {
           if (err) throw err;
