@@ -15,8 +15,7 @@ Follow these steps to get started with the project.
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/Inder-Pal-github/Image-Upload-Backend
+   ```git clone https://github.com/Inder-Pal-github/Image-Upload-Backend.git```
 2. Install dependencies:
 
   - cd project-name
