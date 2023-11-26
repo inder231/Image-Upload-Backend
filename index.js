@@ -59,6 +59,7 @@ app.post("/upload/profile", upload.single("profile"), async (req, res) => {
       .upload_stream(
         {
           public_id: publicId,  // This public_id should be unique each time so that the old image don't get replace with new one in cloudinary media library.
+          folder:"imageuploadtesting"
         },
         (err, result) => {
           if (err) throw err;
